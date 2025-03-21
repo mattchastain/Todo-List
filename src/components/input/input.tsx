@@ -31,7 +31,7 @@ export function Input({
 			value={value}
 			placeholder={placeholder}
 			onChange={onChange}
-			className='border-2 w-full border-neutral-700 outline-none p-2 rounded md:rounded-lg text-xs md:text-sm'
+			className='border-2 w-full border-neutral-700 outline-none p-2 md:p-3 rounded md:rounded-lg text-xs md:text-sm'
 		/>
 	);
 }
