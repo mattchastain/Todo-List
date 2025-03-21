@@ -1,5 +1,11 @@
-export default function input() {
-  return (
-    <div>input</div>
-  )
+interface InputProps {
+	type: string;
+	name: string;
+	value?: string;
+	placeholder?: string;
+	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export default function Input() {
+	return <div>input</div>;
 }
