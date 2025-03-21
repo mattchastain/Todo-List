@@ -13,6 +13,14 @@ export function Modal({
 	setShowModal,
 	children,
 }: ModalProps) {
+    
+	const onKeyDown = useCallback(
+		(e: KeyboardEvent) => {
+			if (e.key === 'Escape') setShowModal(false);
+		},
+		[setShowModal]
+	);
+
 	return (
 		<AnimatePresence>
 			{showModal && (
