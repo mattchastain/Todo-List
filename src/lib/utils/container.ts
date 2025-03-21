@@ -1,3 +1,5 @@
+import { ContainerType } from '../types';
+
 export const onAddContainer = (
 	containerName: string,
 	setContainerName: (name: string) => void,
@@ -8,4 +10,12 @@ export const onAddContainer = (
 	addContainer(containerName);
 	setContainerName('');
 	setShowModal(false);
+};
+
+export const onDeleteContainer = (
+	id: Date,
+	containers: ContainerType[],
+	setContainers: (containers: ContainerType[]) => void
+) => {
+	setContainers(containers.filter((container) => container.id !== id));
 };
