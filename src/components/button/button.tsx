@@ -4,7 +4,7 @@ interface ButtonProps {
 	label: string;
 	onClick?: (() => void) | undefined;
 	fullWidth?: boolean;
-	variant?: 'default' | 'outline' | 'ghost';
+	variant?: 'default' | 'outline' | 'ghost' | 'danger';
 	disabled?: boolean;
 	icon?: LucideIcon;
 }
@@ -24,6 +24,7 @@ export function Button({
 		default: 'bg-indigo-600 text-primary hover:bg-indigo-800',
 		outline: 'bg-transparent border-2 border-neutral-700 hover:bg-neutral-800/50',
         ghost: 'bg-transparent hover:bg-neutral-800',
+        danger: 'bg-red-600 hover:bg-red-800',
 	};
 
 	return (
