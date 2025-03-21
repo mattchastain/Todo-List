@@ -4,6 +4,24 @@ import { ContainerType } from '..';
 
 type ContainerState = {
 	containers: ContainerType[];
-	setContainer: (title: string) => void;
+	setContainers: (containers: ContainerType[]) => void;
 	addContainer: (title: string) => void;
 };
+
+export const useContainerStore = create<ContainerState>()(
+	persist(
+		(set) => ({
+			containers: [],
+			setContainers: (containers) => set({ containers }),
+			addContainer: (title) =>
+				set((state) => ({
+					containers: [...state.containers, {
+                        id: new Date(),
+                        title,
+                        items: [],
+                    }],
+				})),
+		}),
+		{ name: 'container-store' }
+	)
+);
