@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react';
+
 interface InputProps {
 	type: string;
 	name: string;
@@ -6,6 +8,20 @@ interface InputProps {
 	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function Input() {
+export default function Input({
+	type,
+	name,
+	value = '',
+	placeholder = '',
+	onChange = () => {},
+}: InputProps) {
+	const inputRef = useRef<HTMLInputElement>(null);
+
+	useEffect(() => {
+		if (inputRef.current) {
+			inputRef.current.focus();
+		}
+	}, []);
+
 	return <div>input</div>;
 }
