@@ -13,6 +13,8 @@ export function Modal({
 	setShowModal,
 	children,
 }: ModalProps) {
+	const desktopModalRef = useRef(null);
+
 	const onKeyDown = useCallback(
 		(e: KeyboardEvent) => {
 			if (e.key === 'Escape') setShowModal(false);
@@ -31,9 +33,15 @@ export function Modal({
 				<>
 					<FocusTrap focusTrapOptions={{ initialFocus: false }}>
 						<motion.div
+							ref={desktopModalRef}
 							initial={{ scale: 0.7, opacity: 0 }}
 							animate={{ scale: 1, opacity: 1 }}
 							exit={{ scale: 0.7, opacity: 0 }}
+							onMouseDown={(e) => {
+								if (desktopModalRef.current === e.target) {
+									setShowModal(false);
+								}
+							}}
 							className='fixed inset-0 flex items-center justify-center z-50 min-h-screen'
 						>
 							<div>{children}</div>
