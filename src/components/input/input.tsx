@@ -23,5 +23,15 @@ export default function Input({
 		}
 	}, []);
 
-	return <div>input</div>;
+	return (
+		<input
+			ref={inputRef}
+			type={type}
+			name={name}
+			value={value}
+			placeholder={placeholder}
+			onChange={onChange}
+      className=''
+		/>
+	);
 }
