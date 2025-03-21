@@ -8,7 +8,7 @@ interface InputProps {
 	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function Input({
+export function Input({
 	type,
 	name,
 	value = '',
@@ -31,7 +31,7 @@ export default function Input({
 			value={value}
 			placeholder={placeholder}
 			onChange={onChange}
-      className=''
+			className='border-2 w-full border-neutral-700 outline-none p-2 rounded md:rounded-lg text-xs md:text-sm'
 		/>
 	);
 }
