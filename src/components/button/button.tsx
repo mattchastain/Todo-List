@@ -18,7 +18,7 @@ export function Button({
 	icon: Icon,
 }: ButtonProps) {
 	const baseClasses =
-		'bg-indigo-600 flex items-center justify-center p-2 md:p-3 gap-2 rounded md:rounded-lg text-xs font-bold md:text-sm md:font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2  disabled:pointer-events-none disabled:opacity-50 transition-all cursor-pointer';
+		'flex items-center justify-center p-2 md:p-3 gap-2 rounded md:rounded-lg text-xs font-bold md:text-sm md:font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 transition-all cursor-pointer';
 
 	const variantClasses = {
 		default: 'bg-indigo-600 text-primary hover:bg-indigo-800',
