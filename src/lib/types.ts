@@ -3,3 +3,9 @@ export type ItemType = {
     title: string;
     complete: boolean;
 }
+
+export type ContainerType = {
+    id: Date;
+    title: string;
+    items: ItemType[];
+}
