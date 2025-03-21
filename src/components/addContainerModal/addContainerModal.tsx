@@ -1,17 +1,17 @@
 import { Modal } from '..';
 
-interface CreateContainerProps {
+interface AddContainerProps {
 	showModal: boolean;
 	setShowModal: (value: boolean) => void;
 }
 
-export function CreateContainer({showModal, setShowModal}: CreateContainerProps) {
+export function AddContainerModal({showModal, setShowModal}: AddContainerProps) {
 	return (
 		<Modal
 			showModal={showModal}
 			setShowModal={setShowModal}
 		>
-			<div></div>
+			<div><button></button></div>
 		</Modal>
 	);
 }

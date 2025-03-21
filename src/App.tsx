@@ -1,12 +1,12 @@
 import { CirclePlus } from 'lucide-react';
-import { Button, CreateContainer } from './components';
+import { Button, AddContainerModal } from './components';
 import { useContainerStore } from './lib';
 
 import { useState } from 'react';
 
 export default function App() {
 	const { containers, setContainers, addContainer } = useContainerStore();
-	const [showCreateContainerModal, setShowCreateContainerModal] =
+	const [showAddContainerModal, setShowAddContainerModal] =
 		useState(false);
 
 	return (
@@ -14,15 +14,15 @@ export default function App() {
 			{containers.length === 0 && (
 				<div className='fixed inset-0 flex items-center justify-center'>
 					<Button
-						label='Create Container'
+						label='Add Your First Container'
 						icon={CirclePlus}
-						onClick={() => setShowCreateContainerModal(true)}
+						onClick={() => setShowAddContainerModal(true)}
 					/>
 				</div>
 			)}
-			<CreateContainer
-				showModal={showCreateContainerModal}
-				setShowModal={setShowCreateContainerModal}
+			<AddContainerModal
+				showModal={showAddContainerModal}
+				setShowModal={setShowAddContainerModal}
 			/>
 		</div>
 	);
