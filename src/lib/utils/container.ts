@@ -1,11 +1,11 @@
 export const onAddContainer = (
-	name: string,
+	containerName: string,
 	setContainerName: (name: string) => void,
-	setShowAddContainerModal: (show: boolean) => void,
+	setShowModal: (show: boolean) => void,
 	addContainer: (name: string) => void
 ) => {
-	if (!name) return;
-	addContainer(name);
+	if (!containerName) return;
+	addContainer(containerName);
 	setContainerName('');
-	setShowAddContainerModal(false);
+	setShowModal(false);
 };
