@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+:root {
+    color: var(--color-neutral-100);
+    background-color: var(--color-neutral-950);
+}
