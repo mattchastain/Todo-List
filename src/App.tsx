@@ -1,5 +1,5 @@
 import { CirclePlus } from 'lucide-react';
-import { Button } from './components';
+import { Button, CreateContainer } from './components';
 import { useContainerStore } from './lib';
 
 import { useState } from 'react';
@@ -20,6 +20,10 @@ export default function App() {
 					/>
 				</div>
 			)}
+			<CreateContainer
+				showModal={showCreateContainerModal}
+				setShowModal={setShowCreateContainerModal}
+			/>
 		</div>
 	);
 }
