@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { Button, Input, Modal } from '..';
-import { isContainerNameEmpty } from '../../lib';
+import { isContainerNameEmpty, onAddContainer } from '../../lib';
 
 interface AddContainerProps {
 	showModal: boolean;
 	setShowModal: (value: boolean) => void;
+	addContainer: (name: string) => void;
 }
 
 export function AddContainerModal({
 	showModal,
 	setShowModal,
+	addContainer,
 }: AddContainerProps) {
 	const [containerName, setContainerName] = useState('');
 
@@ -24,7 +26,19 @@ export function AddContainerModal({
 					value={containerName}
 					onChange={(e) => setContainerName(e.target.value)}
 				/>
-				<Button label='Add Container' fullWidth={true} disabled={isContainerNameEmpty(containerName)} />
+				<Button
+					label='Add Container'
+					onClick={() => {
+						onAddContainer(
+							containerName,
+							setContainerName,
+							setShowModal,
+							addContainer
+						);
+					}}
+					fullWidth={true}
+					disabled={isContainerNameEmpty(containerName)}
+				/>
 			</div>
 		</Modal>
 	);
