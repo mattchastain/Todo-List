@@ -23,6 +23,7 @@ export default function App() {
 			<AddContainerModal
 				showModal={showAddContainerModal}
 				setShowModal={setShowAddContainerModal}
+				addContainer={addContainer}
 			/>
 		</div>
 	);
