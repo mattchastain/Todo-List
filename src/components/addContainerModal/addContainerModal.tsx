@@ -15,7 +15,7 @@ export function AddContainerModal({
 
 	return (
 		<Modal showModal={showModal} setShowModal={setShowModal}>
-			<div className='flex flex-col gap-3 w-full bg-neutral-800/50 rounded-md md:rounded-xl p-2 md:p-3 text-center text-xl md:text-2xl'>
+			<div className='flex flex-col gap-3 w-full bg-neutral-900/80 rounded-md md:rounded-xl p-2 md:p-3 text-center text-xl md:text-2xl'>
 				<h1 className='font-bold'>Add New Container</h1>
 				<Input
 					type='text'
