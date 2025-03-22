@@ -19,3 +19,11 @@ export const onDeleteContainer = (
 ) => {
 	setContainers(containers.filter((container) => container.id !== id));
 };
+
+export const onDeleteAllContainers = (
+	setShowModal: (show: boolean) => void,
+	setContainers: (containers: ContainerType[]) => void
+) => {
+	setContainers([]);
+	setShowModal(false);
+};
