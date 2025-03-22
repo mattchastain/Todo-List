@@ -19,7 +19,7 @@ export function Container({ id, title, items, onDelete }: ContainerProps) {
 				exit={{ scale: 0.7, opacity: 0 }}
 			>
 				<div className='flex flex-col gap-3 w-full bg-neutral-900 border border-neutral-800/80 rounded-md md:rounded-xl p-2 md:p-3'>
-					<div className='flex items-center justify-between'>
+					<div className='flex justify-between'>
 						<h1 className='font-bold text-xl md:text-2xl'>
 							{title}
 						</h1>
@@ -29,6 +29,7 @@ export function Container({ id, title, items, onDelete }: ContainerProps) {
 							icon={EllipsisVertical}
 						/>
 					</div>
+					<Button label='Add Task' fullWidth={true} variant='ghost'/>
 				</div>
 			</motion.div>
 		</AnimatePresence>
