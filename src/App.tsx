@@ -8,7 +8,7 @@ import {
 } from './components';
 import { onDeleteContainer, useContainerStore } from './lib';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 export default function App() {
 	const { containers, setContainers, addContainer } = useContainerStore();
@@ -44,23 +44,28 @@ export default function App() {
 				setShowModal={setShowDeleteAllContainerModal}
 				setContainers={setContainers}
 			/>
-			<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
-				{containers.map((container) => (
-					<Container
-						id={container.id}
-						title={container.title}
-						items={container.items}
-						key={Math.random() * 1000}
-						onDelete={() =>
-							onDeleteContainer(
-								container.id,
-								containers,
-								setContainers
-							)
-						}
-					/>
-				))}
-			</div>
+			{useMemo(
+				() => (
+					<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
+						{containers.map((container) => (
+							<Container
+								id={container.id}
+								title={container.title}
+								items={container.items}
+								key={Math.random() * 1000}
+								onDelete={() =>
+									onDeleteContainer(
+										container.id,
+										containers,
+										setContainers
+									)
+								}
+							/>
+						))}
+					</div>
+				),
+				[containers]
+			)}
 		</div>
 	);
 }
