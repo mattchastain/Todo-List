@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Button, Input, Modal } from '..';
 import { isContainerNameEmpty, onAddContainer } from '../../lib';
 
@@ -14,6 +14,26 @@ export function AddContainerModal({
 	addContainer,
 }: AddContainerProps) {
 	const [containerName, setContainerName] = useState('');
+
+	const onKeyDown = useCallback(
+		(e: KeyboardEvent) => {
+			if (isContainerNameEmpty(containerName)) return;
+			if (e.key === 'Enter') {
+				onAddContainer(
+					containerName,
+					setContainerName,
+					setShowModal,
+					addContainer
+				);
+			}
+		},
+		[setShowModal]
+	);
+
+	useEffect(() => {
+		document.addEventListener('keydown', onKeyDown);
+		return () => document.removeEventListener('keydown', onKeyDown);
+	}, [onKeyDown]);
 
 	return (
 		<Modal showModal={showModal} setShowModal={setShowModal}>
