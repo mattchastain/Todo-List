@@ -13,7 +13,7 @@ export function AddContainerModal({
 	setShowModal,
 	addContainer,
 }: AddContainerProps) {
-	const [containerName, setContainerName] = useState('');
+	const [containerName, setContainerName] = useState<string>('');
 
 	const onKeyDown = useCallback(
 		(e: KeyboardEvent) => {
@@ -27,7 +27,7 @@ export function AddContainerModal({
 				);
 			}
 		},
-		[setShowModal]
+		[containerName, setShowModal]
 	);
 
 	useEffect(() => {
