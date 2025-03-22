@@ -44,7 +44,9 @@ export function Modal({
 							}}
 							className='fixed inset-0 flex items-center justify-center z-50 min-h-screen'
 						>
-							<div className='w-full max-w-md'>{children}</div>
+							<div className='w-full max-w-md flex flex-col gap-3 bg-neutral-900/80 border border-neutral-800/80 rounded-md md:rounded-xl p-2 md:p-3 text-center text-xl md:text-2xl'>
+								{children}
+							</div>
 						</motion.div>
 					</FocusTrap>
 					<motion.div
