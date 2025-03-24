@@ -21,6 +21,7 @@ export function DeleteAllContainersModal({
 				onClick={() => {
 					onDeleteAllContainers(setShowModal, setContainers);
 				}}
+				variant='danger'
 				icon={Trash2}
 			/>
 		</Modal>
