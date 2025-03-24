@@ -1,6 +1,7 @@
 import { CirclePlus } from 'lucide-react';
 import {
 	AddContainerModal,
+	AddItemModal,
 	Button,
 	Container,
 	DeleteAllContainersModal,
@@ -12,7 +13,9 @@ import { useMemo, useState } from 'react';
 
 export default function App() {
 	const { containers, setContainers, addContainer } = useContainerStore();
+	const [currentContainerId, setCurrentContainerId] = useState<Date>();
 	const [showAddContainerModal, setShowAddContainerModal] = useState(false);
+	const [showAddItemModal, setShowAddItemModal] = useState(false);
 	const [showDeleteAllContainerModal, setShowDeleteAllContainerModal] =
 		useState(false);
 
@@ -44,6 +47,13 @@ export default function App() {
 				setShowModal={setShowDeleteAllContainerModal}
 				setContainers={setContainers}
 			/>
+			<AddItemModal
+				showModal={showAddItemModal}
+				setShowModal={setShowAddItemModal}
+				containers={containers}
+				setContainers={setContainers}
+				currentContainerId={currentContainerId}
+			/>
 			{useMemo(
 				() => (
 					<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
@@ -53,6 +63,10 @@ export default function App() {
 								title={container.title}
 								items={container.items}
 								key={Math.random() * 1000}
+								onAddItem={() => {
+									setShowAddItemModal(true);
+									setCurrentContainerId(container.id);
+								}}
 								onDelete={() =>
 									onDeleteContainer(
 										container.id,
