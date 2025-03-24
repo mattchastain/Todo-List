@@ -1,4 +1,5 @@
 export * from './addContainerModal/addContainerModal';
+export * from './addItemModal/addItemModal';
 export * from './button/button';
 export * from './container/container';
 export * from './deleteAllContainersModal/deleteAllContainersModal';
