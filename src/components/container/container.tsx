@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { EllipsisVertical } from 'lucide-react';
+import { Button, Item } from '..';
 import { ItemType } from '../../lib';
-import { Button } from '../button/button';
 
 interface ContainerProps {
 	id: Date;
@@ -29,7 +29,15 @@ export function Container({ id, title, items, onDelete }: ContainerProps) {
 							icon={EllipsisVertical}
 						/>
 					</div>
-					<Button label='Add Task' fullWidth={true} variant='ghost'/>
+					{items.map((item) => (
+						<Item
+							id={item.id}
+							title={item.title}
+							completed={item.completed}
+							containerId={id}
+						/>
+					))}
+					<Button label='Add Task' fullWidth={true} variant='ghost' />
 				</div>
 			</motion.div>
 		</AnimatePresence>
