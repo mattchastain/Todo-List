@@ -6,7 +6,7 @@ export const onAddItem = (
 	setShowModal: (showModal: boolean) => void,
 	containers: ContainerType[],
 	setContainers: (containers: ContainerType[]) => void,
-	currentContainerId: Date
+	currentContainerId: Date | undefined
 ) => {
 	if (!itemName) return;
 	const id = new Date();
