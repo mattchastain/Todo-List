@@ -67,7 +67,7 @@ export default function App() {
 									setShowAddItemModal(true);
 									setCurrentContainerId(container.id);
 								}}
-								onDelete={() =>
+								onDeleteContainer={() =>
 									onDeleteContainer(
 										container.id,
 										containers,

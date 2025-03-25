@@ -1,16 +1,23 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { EllipsisVertical } from 'lucide-react';
-import { Button, Item } from '..';
+import { EllipsisVertical, Pencil, Trash2 } from 'lucide-react';
+import { Button, Dropdown, Item } from '..';
 import { ItemType } from '../../lib';
 
 interface ContainerProps {
 	id: Date;
 	title?: string;
 	items: ItemType[];
-	onDelete: () => void;
+	onAddItem: () => void;
+	onDeleteContainer: () => void;
 }
 
-export function Container({ id, title, items, onDelete }: ContainerProps) {
+export function Container({
+	id,
+	title,
+	items,
+	onAddItem,
+	onDeleteContainer,
+}: ContainerProps) {
 	return (
 		<AnimatePresence>
 			<motion.div
@@ -23,11 +30,23 @@ export function Container({ id, title, items, onDelete }: ContainerProps) {
 						<h1 className='font-bold text-xl md:text-2xl'>
 							{title}
 						</h1>
-						<Button
-							label=''
-							variant='ghost'
-							icon={EllipsisVertical}
-						/>
+						<Dropdown label='' icon={EllipsisVertical}>
+							<Button
+								label='Edit'
+								fullWidth={true}
+								variant='default'
+								icon={Pencil}
+								dropdownItem={true}
+							/>
+							<Button
+								label='Delete'
+								onClick={onDeleteContainer}
+								fullWidth={true}
+								variant='danger'
+								icon={Trash2}
+								dropdownItem={true}
+							/>
+						</Dropdown>
 					</div>
 					{items.map((item) => (
 						<Item
@@ -37,7 +56,12 @@ export function Container({ id, title, items, onDelete }: ContainerProps) {
 							containerId={id}
 						/>
 					))}
-					<Button label='Add Task' fullWidth={true} variant='ghost' />
+					<Button
+						label='Add Task'
+						onClick={onAddItem}
+						fullWidth={true}
+						variant='ghost'
+					/>
 				</div>
 			</motion.div>
 		</AnimatePresence>
