@@ -31,13 +31,13 @@ export function Container({
 							{title}
 						</h1>
 						<Dropdown label='' icon={EllipsisVertical}>
-							<Button
+							{/* <Button
 								label='Edit'
 								fullWidth={true}
 								variant='default'
 								icon={Pencil}
 								dropdownItem={true}
-							/>
+							/> */}
 							<Button
 								label='Delete'
 								onClick={onDeleteContainer}
