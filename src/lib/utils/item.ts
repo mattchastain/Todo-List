@@ -19,3 +19,17 @@ export const onAddItem = (
 	setItemName('');
 	setShowModal(false);
 };
+
+export const onDeleteItem = (
+	itemId: Date,
+	containers: ContainerType[],
+	setContainers: (containers: ContainerType[]) => void
+) => {
+	if (!itemId) return;
+	const container = containers.find((container) =>
+		container.items.find((item) => item.id === itemId)
+	);
+	if (!container) return;
+	container.items = container.items.filter((item) => item.id !== itemId);
+	setContainers([...containers]);
+};
