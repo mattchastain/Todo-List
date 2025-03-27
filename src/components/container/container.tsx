@@ -44,7 +44,6 @@ export function Container({
 					id={item.id}
 					title={item.title}
 					completed={item.completed}
-					containerId={id}
 				/>
 			))}
 			<Button
