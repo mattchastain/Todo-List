@@ -33,3 +33,19 @@ export const onDeleteItem = (
 	container.items = container.items.filter((item) => item.id !== itemId);
 	setContainers([...containers]);
 };
+
+export const onToggleItemCompleted = (
+	itemId: Date,
+	containers: ContainerType[],
+	setContainers: (containers: ContainerType[]) => void
+) => {
+	if (!itemId) return;
+	const container = containers.find((container) =>
+		container.items.find((item) => item.id === itemId)
+	);
+	if (!container) return;
+	const item = container.items.find((item) => item.id === itemId);
+	if (!item) return;
+	item.completed = !item.completed;
+	setContainers([...containers]);
+};
