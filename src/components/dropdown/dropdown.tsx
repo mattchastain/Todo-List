@@ -13,7 +13,7 @@ interface DropdownProps {
 export function Dropdown({
 	label,
 	icon,
-	position = 'bottom',
+	position = 'left',
 	children,
 }: DropdownProps) {
 	const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +21,7 @@ export function Dropdown({
 	const positionClasses = {
 		top: '',
 		bottom: 'mt-2 left-1/2 -translate-x-1/2',
-		left: '',
+		left: 'mr-2 right-full top-0',
 		right: '',
 	};
 
