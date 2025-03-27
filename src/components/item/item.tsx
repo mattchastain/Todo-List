@@ -10,10 +10,9 @@ interface ItemProps {
 	id: Date;
 	title: string;
 	completed: boolean;
-	containerId: Date;
 }
 
-export function Item({ id, title, completed, containerId }: ItemProps) {
+export function Item({ id, title, completed }: ItemProps) {
 	const { containers, setContainers } = useContainerStore();
 
 	return (

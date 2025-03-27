@@ -1,4 +1,4 @@
-import { EllipsisVertical, Pencil, Trash2 } from 'lucide-react';
+import { EllipsisVertical, Trash2 } from 'lucide-react';
 import { Button, Dropdown, Item } from '..';
 import { ItemType } from '../../lib';
 
