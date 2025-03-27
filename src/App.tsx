@@ -59,7 +59,6 @@ export default function App() {
 					<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
 						{containers.map((container) => (
 							<Container
-								id={container.id}
 								title={container.title}
 								items={container.items}
 								key={Math.random() * 1000}

@@ -3,7 +3,6 @@ import { Button, Dropdown, Item } from '..';
 import { ItemType } from '../../lib';
 
 interface ContainerProps {
-	id: Date;
 	title?: string;
 	items: ItemType[];
 	onAddItem: () => void;
@@ -11,7 +10,6 @@ interface ContainerProps {
 }
 
 export function Container({
-	id,
 	title,
 	items,
 	onAddItem,
