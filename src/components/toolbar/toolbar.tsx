@@ -1,4 +1,4 @@
-import { CirclePlus, Eraser } from 'lucide-react';
+import { Plus, Trash2 } from 'lucide-react';
 import { Button } from '..';
 
 interface ToolbarProps {
@@ -10,14 +10,14 @@ export function Toolbar({ setShowAddContainerModal, setShowDeleteAllContainerMod
 	return (
 		<div className='w-max mx-auto flex gap-3 bg-neutral-900 border border-neutral-800/80 rounded-md md:rounded-xl p-2'>
 			<Button
-				label=''
-				icon={CirclePlus}
+				label='Add Container'
+				icon={Plus}
 				onClick={() => setShowAddContainerModal(true)}
 			/>
 			<Button
-				label=''
+				label='Delete All'
                 variant='danger'
-				icon={Eraser}
+				icon={Trash2}
 				onClick={() => setShowDeleteAllContainerModal(true)}
 			/>
 		</div>
