@@ -4,6 +4,7 @@ export * from './button/button';
 export * from './container/container';
 export * from './deleteAllContainersModal/deleteAllContainersModal';
 export * from './dropdown/dropdown';
+export * from './editContainerModal/editContainerModal';
 export * from './input/input';
 export * from './item/item';
 export * from './modal/modal';
