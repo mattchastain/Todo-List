@@ -1,4 +1,4 @@
-import { CirclePlus } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import {
 	AddContainerModal,
 	AddItemModal,
@@ -24,8 +24,8 @@ export default function App() {
 			{containers.length === 0 ? (
 				<div className='fixed inset-0 flex items-center justify-center'>
 					<Button
-						label='Add Your First Container'
-						icon={CirclePlus}
+						label='Add Container'
+						icon={Plus}
 						onClick={() => setShowAddContainerModal(true)}
 					/>
 				</div>
