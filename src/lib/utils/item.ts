@@ -49,3 +49,22 @@ export const onToggleItemCompleted = (
 	item.completed = !item.completed;
 	setContainers([...containers]);
 };
+
+export const onEditItem = (
+	itemId: Date | undefined,
+	containers: ContainerType[],
+	setContainers: (containers: ContainerType[]) => void,
+	newTitle: string,
+	setShowModal: (show: boolean) => void
+) => {
+	if (!itemId) return;
+	const container = containers.find((container) =>
+		container.items.find((item) => item.id === itemId)
+	);
+	if (!container) return;
+	const item = container.items.find((item) => item.id === itemId);
+	if (!item) return;
+	item.title = newTitle;
+	setContainers([...containers]);
+	setShowModal(false);
+};
