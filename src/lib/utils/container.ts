@@ -27,3 +27,20 @@ export const onDeleteAllContainers = (
 	setContainers([]);
 	setShowModal(false);
 };
+
+export const onEditContainer = (
+	containerId: Date | undefined,
+	containers: ContainerType[],
+	setContainers: (containers: ContainerType[]) => void,
+	newTitle: string,
+	setShowModal: (show: boolean) => void
+) => {
+	if (!containerId) return;
+	const container = containers.find(
+		(container) => container.id === containerId
+	);
+	if (!container) return;
+	container.title = newTitle;
+	setContainers([...containers]);
+	setShowModal(false);
+};
