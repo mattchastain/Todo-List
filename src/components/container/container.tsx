@@ -6,6 +6,7 @@ interface ContainerProps {
 	title?: string;
 	items: ItemType[];
 	onAddItem: () => void;
+	onEditItem: (itemId: Date) => void;
 	onDeleteContainer: () => void;
 	setCurrentContainerId: () => void;
 	setShowEditContainerModal: () => void;
@@ -15,6 +16,7 @@ export function Container({
 	title,
 	items,
 	onAddItem,
+	onEditItem,
 	onDeleteContainer,
 	setCurrentContainerId,
 	setShowEditContainerModal,
@@ -50,6 +52,7 @@ export function Container({
 					id={item.id}
 					title={item.title}
 					completed={item.completed}
+					onEdit={onEditItem}
 				/>
 			))}
 			<Button
