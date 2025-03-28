@@ -24,7 +24,7 @@ export default function App() {
 		useState(false);
 
 	const [showAddItemModal, setShowAddItemModal] = useState(false);
-	const [editedItemTitle, setEditedItemTitle] = useState('');
+	// const [editedItemTitle, setEditedItemTitle] = useState('');
 
 	return (
 		<div className='mx-auto max-w-7xl flex flex-col gap-8'>
