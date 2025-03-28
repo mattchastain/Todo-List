@@ -1,4 +1,4 @@
-import { EllipsisVertical, Trash2 } from 'lucide-react';
+import { EllipsisVertical, Pencil, Trash2 } from 'lucide-react';
 import { Button, Dropdown, Item } from '..';
 import { ItemType } from '../../lib';
 
@@ -7,6 +7,7 @@ interface ContainerProps {
 	items: ItemType[];
 	onAddItem: () => void;
 	onDeleteContainer: () => void;
+	setCurrentContainerId: () => void;
 }
 
 export function Container({
@@ -14,19 +15,21 @@ export function Container({
 	items,
 	onAddItem,
 	onDeleteContainer,
+	setCurrentContainerId
 }: ContainerProps) {
 	return (
 		<div className='flex flex-col gap-3 w-full h-max bg-neutral-900 border border-neutral-800/80 rounded-md md:rounded-xl p-2 md:p-3'>
 			<div className='flex justify-between'>
 				<h1 className='font-bold text-xl md:text-2xl'>{title}</h1>
 				<Dropdown label='' icon={EllipsisVertical}>
-					{/* <Button
-								label='Edit'
-								fullWidth={true}
-								variant='default'
-								icon={Pencil}
-								dropdownItem={true}
-							/> */}
+					<Button
+						label='Edit'
+						onClick={setCurrentContainerId}
+						fullWidth={true}
+						variant='default'
+						icon={Pencil}
+						dropdownItem={true}
+					/>
 					<Button
 						label='Delete'
 						onClick={onDeleteContainer}
