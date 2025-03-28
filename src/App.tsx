@@ -5,9 +5,10 @@ import {
 	Button,
 	Container,
 	DeleteAllContainersModal,
+	EditContainerModal,
 	Toolbar,
 } from './components';
-import { onDeleteContainer, useContainerStore } from './lib';
+import { onDeleteContainer, onEditContainer, useContainerStore } from './lib';
 
 import { useMemo, useState } from 'react';
 
@@ -15,9 +16,15 @@ export default function App() {
 	const { containers, setContainers, addContainer } = useContainerStore();
 	const [currentContainerId, setCurrentContainerId] = useState<Date>();
 	const [showAddContainerModal, setShowAddContainerModal] = useState(false);
-	const [showAddItemModal, setShowAddItemModal] = useState(false);
+
+	const [showEditContainerModal, setShowEditContainerModal] = useState(false);
+
+	const [editedContainerTitle, setEditedContainerTitle] = useState('');
 	const [showDeleteAllContainerModal, setShowDeleteAllContainerModal] =
 		useState(false);
+
+	const [showAddItemModal, setShowAddItemModal] = useState(false);
+	const [editedItemTitle, setEditedItemTitle] = useState('');
 
 	return (
 		<div className='mx-auto max-w-7xl flex flex-col gap-8'>
@@ -41,6 +48,21 @@ export default function App() {
 				showModal={showAddContainerModal}
 				setShowModal={setShowAddContainerModal}
 				addContainer={addContainer}
+			/>
+			<EditContainerModal
+				containerId={currentContainerId}
+				showModal={showEditContainerModal}
+				setShowModal={setShowEditContainerModal}
+				setEditedContainerTitle={setEditedContainerTitle}
+				onEditContainer={() =>
+					onEditContainer(
+						currentContainerId,
+						containers,
+						setContainers,
+						editedContainerTitle,
+						setShowEditContainerModal
+					)
+				}
 			/>
 			<DeleteAllContainersModal
 				showModal={showDeleteAllContainerModal}
@@ -73,6 +95,8 @@ export default function App() {
 										setContainers
 									)
 								}
+								setCurrentContainerId={() => setCurrentContainerId(container.id)}
+								setShowEditContainerModal={() => setShowEditContainerModal(true)}
 							/>
 						))}
 					</div>

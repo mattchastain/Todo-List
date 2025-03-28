@@ -8,6 +8,7 @@ interface ContainerProps {
 	onAddItem: () => void;
 	onDeleteContainer: () => void;
 	setCurrentContainerId: () => void;
+	setShowEditContainerModal: () => void;
 }
 
 export function Container({
@@ -15,7 +16,8 @@ export function Container({
 	items,
 	onAddItem,
 	onDeleteContainer,
-	setCurrentContainerId
+	setCurrentContainerId,
+	setShowEditContainerModal,
 }: ContainerProps) {
 	return (
 		<div className='flex flex-col gap-3 w-full h-max bg-neutral-900 border border-neutral-800/80 rounded-md md:rounded-xl p-2 md:p-3'>
@@ -24,7 +26,10 @@ export function Container({
 				<Dropdown label='' icon={EllipsisVertical}>
 					<Button
 						label='Edit'
-						onClick={setCurrentContainerId}
+						onClick={() => {
+							setCurrentContainerId();
+							setShowEditContainerModal();
+						}}
 						fullWidth={true}
 						variant='default'
 						icon={Pencil}
