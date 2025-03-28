@@ -3,7 +3,6 @@ import { Button, Input, Modal } from '..';
 import { isContainerNameEmpty } from '../../lib';
 
 interface EditContainerModalProps {
-	containerId: Date | undefined;
 	showModal: boolean;
 	setShowModal: (show: boolean) => void;
 	setEditedContainerTitle: (title: string) => void;
@@ -11,7 +10,6 @@ interface EditContainerModalProps {
 }
 
 export function EditContainerModal({
-	containerId,
 	showModal,
 	setShowModal,
 	setEditedContainerTitle,
