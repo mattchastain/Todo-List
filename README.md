@@ -13,6 +13,7 @@ Built with:
 
 - Create containers and items.
 - Delete containers and items.
+- Edit containers.
 - Delete all containers.
 
 # What I Learned
