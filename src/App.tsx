@@ -50,7 +50,6 @@ export default function App() {
 				addContainer={addContainer}
 			/>
 			<EditContainerModal
-				containerId={currentContainerId}
 				showModal={showEditContainerModal}
 				setShowModal={setShowEditContainerModal}
 				setEditedContainerTitle={setEditedContainerTitle}
