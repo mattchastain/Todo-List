@@ -1,4 +1,4 @@
-import { Circle, CircleCheckBig, EllipsisVertical, Trash2 } from 'lucide-react';
+import { Circle, CircleCheckBig, EllipsisVertical, Pencil, Trash2 } from 'lucide-react';
 import { Button, Dropdown } from '..';
 import {
 	onDeleteItem,
@@ -10,9 +10,10 @@ interface ItemProps {
 	id: Date;
 	title: string;
 	completed: boolean;
+	onEdit: (itemId: Date) => void;
 }
 
-export function Item({ id, title, completed }: ItemProps) {
+export function Item({ id, title, completed, onEdit }: ItemProps) {
 	const { containers, setContainers } = useContainerStore();
 
 	return (
@@ -33,6 +34,14 @@ export function Item({ id, title, completed }: ItemProps) {
 				<h1 className=''>{title}</h1>
 			</div>
 			<Dropdown label='' icon={EllipsisVertical}>
+				<Button
+					label='Edit'
+					onClick={() => onEdit(id)}
+					fullWidth={true}
+					variant='default'
+					icon={Pencil}
+					dropdownItem={true}
+				/>
 				<Button
 					label='Delete'
 					onClick={() => {
